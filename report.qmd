@@ -1,0 +1,23 @@
+```{r}
+library(dplyr)
+library(tidyverse)
+library(knitr)
+library(ggplot2)
+load(here::here("data", "clean R", "clean.Rdata"))
+```
+
+```{r}
+n_eq_g5 <- clean %>% filter(mag>5) %>% count()
+
+min_date <- clean %>% summarize(min=min(ymd_hms(time)))
+
+
+max_date <- clean %>% summarize(max=max(ymd_hms(time)))
+
+save(n_eq_g5, min_date, max_date, 
+     file = "data/clean R/number_earthquakes.Rdata")
+```
+
+```{r}
+ggplot(data = clean, aes(x=mag)) + geom_histogram(fill = "lightblue", color = "black")
+```
