@@ -8,4 +8,4 @@ raw <- read_csv("data/raw/earthquakes.csv")
 
 clean <- raw  %>%  select(time,mag)
 
-save(clean, file = "data/clean R/clean.Rdata")
+save(clean, file = "data/clean/clean.Rdata")

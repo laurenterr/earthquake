@@ -3,7 +3,7 @@ library(dplyr)
 library(tidyverse)
 library(knitr)
 library(ggplot2)
-load(here::here("data", "clean R", "clean.Rdata"))
+load(here::here("data", "clean", "clean.Rdata"))
 ```
 
 ```{r}
@@ -15,7 +15,7 @@ min_date <- clean %>% summarize(min=min(ymd_hms(time)))
 max_date <- clean %>% summarize(max=max(ymd_hms(time)))
 
 save(n_eq_g5, min_date, max_date, 
-     file = "data/clean R/number_earthquakes.Rdata")
+     file = "data/clean/number_earthquakes.Rdata")
 ```
 
 ```{r}
