@@ -2,6 +2,8 @@
 #| eval: false
 # R/01-import.R — Download earthquake data from USGS
 
+dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
+
 url <- paste0(
   "https://earthquake.usgs.gov/earthquakes/",
   "feed/v1.0/summary/4.5_month.csv"
