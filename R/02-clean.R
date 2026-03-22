@@ -8,4 +8,6 @@ raw <- read_csv("data/raw/earthquakes.csv")
 
 clean <- raw  %>%  select(time,mag)
 
+dir.create("data/clean", recursive = TRUE, showWarnings = FALSE)
+
 save(clean, file = "data/clean/clean.Rdata")
