@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "earthquake-report",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "report.html",
+    "href": "report.html",
+    "title": "earthquake-report",
+    "section": "",
+    "text": "library(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ forcats   1.0.1     ✔ readr     2.2.0\n✔ ggplot2   4.0.2     ✔ stringr   1.6.0\n✔ lubridate 1.9.5     ✔ tibble    3.3.1\n✔ purrr     1.2.1     ✔ tidyr     1.3.2\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(knitr)\nlibrary(ggplot2)\nload(here::here(\"data\", \"clean\", \"clean.Rdata\"))\n\n\nn_eq_g5 &lt;- clean %&gt;% filter(mag&gt;5) %&gt;% count()\n\nmin_date &lt;- clean %&gt;% summarize(min=min(ymd_hms(time)))\n\n\nmax_date &lt;- clean %&gt;% summarize(max=max(ymd_hms(time)))\n\nsave(n_eq_g5, min_date, max_date, \n     file = \"data/clean/number_earthquakes.Rdata\")\n\n\nggplot(data = clean, aes(x=mag)) + geom_histogram(fill = \"lightblue\", color = \"black\")\n\n`stat_bin()` using `bins = 30`. Pick better value `binwidth`."
+  }
+]
